@@ -1,10 +1,10 @@
 ﻿@model DRGPetShop.MVC.Models.Category
 
-<form method="post" asp-action="Create">
+<form method="post"> <!--HttpPost Edit method will be called by default from here-->
+    <input asp-for="Id" hidden /> <!--this secret fiels allows to sned item id to the controller-->
     <div class="border p-3">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group row">
-            <h2 class="text-info pl-3">Add Category</h2>
+            <h2 class="text-info pl-3">Edit Category</h2>
         </div>
 
         <div class="row">
@@ -21,10 +21,10 @@
                 <br />
                  <div class="form-group row">
                     <div class="col-4">
-                        <label asp-for="Color">Display Color</label>
+                        <label asp-for="Color"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="Color" type="color" value="#000000" class="form-control" />
+                        <input asp-for="Color" type="color" value="@Model.Color" class="form-control" />
                         <span asp-validation-for="Color" class="text-danger"></span> 
                     </div>
                 </div> 
@@ -37,13 +37,14 @@
                         <input asp-for="DisplayOrder" class="form-control" />
                         <span asp-validation-for="DisplayOrder" class="text-danger"></span>
                     </div>
+
                 </div>
                 <br />
                 <div class="form-group row">
                     <div class="col-8 offset-4 row">
 
                         <div class="col">
-                           <input type="submit" class="btn btn-info w-100" value="Create" />
+                           <input type="submit" class="btn btn-info w-100" value="Update" />
                         </div>
                         <div class="col">
                             <a asp-action="Index" class="btn btn-success w-100">

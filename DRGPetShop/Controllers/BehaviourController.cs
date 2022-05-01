@@ -4,17 +4,17 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DRGPetShop.MVC.Controllers
 {
-    public class CategoryController : Controller
+    public class BehaviourController : Controller
     {
         private readonly DrgContext _context;
-        public CategoryController(DrgContext context)
+        public BehaviourController(DrgContext context)
         {
             _context = context;
         }
 
         public IActionResult Index()
         {
-            IEnumerable<Category> categoryList = _context.Category;
+            IEnumerable<Behaviour> categoryList = _context.Behaviour;
             return View(categoryList);
         }
 
@@ -26,11 +26,11 @@ namespace DRGPetShop.MVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Category item)
+        public IActionResult Create(Behaviour item)
         {
             if (ModelState.IsValid)
             {
-                _context.Category.Add(item);
+                _context.Behaviour.Add(item);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -44,7 +44,7 @@ namespace DRGPetShop.MVC.Controllers
             {
                 return NotFound();
             }
-            var dbItem = _context.Category.Find(id);
+            var dbItem = _context.Behaviour.Find(id);
             if (dbItem is null)
             {
                 return NotFound();
@@ -54,11 +54,11 @@ namespace DRGPetShop.MVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Category item)
+        public IActionResult Edit(Behaviour item)
         {
             if (ModelState.IsValid)
             {
-                _context.Category.Update(item);
+                _context.Behaviour.Update(item);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -72,7 +72,7 @@ namespace DRGPetShop.MVC.Controllers
             {
                 return NotFound();
             }
-            var dbItem = _context.Category.Find(id);
+            var dbItem = _context.Behaviour.Find(id);
             if (dbItem is null)
             {
                 return NotFound();
@@ -84,12 +84,12 @@ namespace DRGPetShop.MVC.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeletePost(int? id)
         {
-            var dbItem = _context.Category.Find(id);
+            var dbItem = _context.Behaviour.Find(id);
             if (dbItem is null)
             {
                 return NotFound();
             }
-            _context.Category.Remove(dbItem);
+            _context.Behaviour.Remove(dbItem);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }

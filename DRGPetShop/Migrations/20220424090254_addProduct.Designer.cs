@@ -3,6 +3,7 @@ using DRGPetShop.MVC.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DRGPetShop.MVC.Migrations
 {
     [DbContext(typeof(DrgContext))]
-    partial class DrgContextModelSnapshot : ModelSnapshot
+    [Migration("20220424090254_addProduct")]
+    partial class addProduct
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,10 +30,6 @@ namespace DRGPetShop.MVC.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Color")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -49,10 +47,6 @@ namespace DRGPetShop.MVC.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Color")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("DisplayOrder")
                         .HasColumnType("int");
@@ -74,9 +68,6 @@ namespace DRGPetShop.MVC.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("BehaviourId")
-                        .HasColumnType("int");
-
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
@@ -92,12 +83,10 @@ namespace DRGPetShop.MVC.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Price")
+                    b.Property<double>("Pirce")
                         .HasColumnType("float");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("BehaviourId");
 
                     b.HasIndex("CategoryId");
 
@@ -106,19 +95,11 @@ namespace DRGPetShop.MVC.Migrations
 
             modelBuilder.Entity("DRGPetShop.MVC.Models.Product", b =>
                 {
-                    b.HasOne("DRGPetShop.MVC.Models.Behaviour", "Behaviour")
-                        .WithMany()
-                        .HasForeignKey("BehaviourId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("DRGPetShop.MVC.Models.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Behaviour");
 
                     b.Navigation("Category");
                 });

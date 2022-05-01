@@ -11,5 +11,7 @@ namespace DRGPetShop.MVC.Data
         }
 
         public DbSet<Category> Category { get; set; }
+        public DbSet<Behaviour> Behaviour { get; set; }
+        public DbSet<Product> Product { get; set; }
     }
 }

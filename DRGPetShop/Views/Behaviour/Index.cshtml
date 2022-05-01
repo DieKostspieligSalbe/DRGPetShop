@@ -1,13 +1,13 @@
-﻿@model IEnumerable<DRGPetShop.MVC.Models.Category>
+﻿@model IEnumerable<DRGPetShop.MVC.Models.Behaviour>
 
 <div class="container p-3">
     <div class="rpw pt-4 d-flex">
         <div class="col-6">
-            <h2 class="text-primary">Category List</h2>
+            <h2 class="text-primary">Behaviour Types List</h2>
         </div>
         <div class="col-6 text-end">
-            <a asp-controller="Category" asp-action="Create" class="btn btn-primary">
-                <i class="fa-solid fa-plus"></i> &nbsp; Create New Category
+            <a asp-controller="Behaviour" asp-action="Create" class="btn btn-primary">
+                <i class="fa-solid fa-plus"></i> &nbsp; Create New Behaviour Type
             </a> 
         </div>
     </div>
@@ -20,10 +20,7 @@
             <thead>
                 <tr>
                     <th>
-                        Category Name
-                    </th>
-                    <th>
-                        Display Order
+                        Behaviour Type Name
                     </th>
                     <th></th>
                 </tr>
@@ -33,12 +30,11 @@
                 {
                     <tr>
                         <td width="50%">@item.Name</td>
-                        <td width="30%">@item.DisplayOrder</td>
-                        <td class="text-center">
+                        <td class="text-center" width="30%">
                             <div class="w-75 btn-group" role="group">
-                                 <a asp-controller="Category" asp-route-Id="@item.Id" asp-action="Edit" class="btn btn-primary mx-2"> 
+                                 <a asp-controller="Behaviour" asp-route-Id="@item.Id" asp-action="Edit" class="btn btn-primary mx-2"> 
                                      <i class="fa-solid fa-pen-to-square"></i></a> 
-                                  <a asp-controller="Category" asp-route-Id="@item.Id" asp-action="Delete" class="btn btn-danger mx-2">
+                                  <a asp-controller="Behaviour" asp-route-Id="@item.Id" asp-action="Delete" class="btn btn-danger mx-2">
                                       <i class="fa-solid fa-trash-can"></i></a> 
                             </div>
                         </td>
