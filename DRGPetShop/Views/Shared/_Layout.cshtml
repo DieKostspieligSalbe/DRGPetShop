@@ -29,6 +29,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                   
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">DRG Pets Home</a>
@@ -42,6 +43,8 @@
                               <hr class="dropdown-divider">
                               <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Index">Category</a>
                               <a class="nav-link text-dark" asp-area="" asp-controller="Behaviour" asp-action="Index">Behaviour</a>
+                              <hr class="dropdown-divider">
+                              <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Create Admin</a>
                            </div>
                          </li>
                          <li>
@@ -60,8 +63,11 @@
                                      <i class="fas fa-shopping-cart"></i> &nbsp; (0)
                                  </a> 
                             }
-                        </li>
+                        </li>          
                     </ul>
+                    <div class=".align-self-end">
+                             <partial name="_LoginPartial" />
+                        </div> 
                 </div>
             </div>
         </nav>
